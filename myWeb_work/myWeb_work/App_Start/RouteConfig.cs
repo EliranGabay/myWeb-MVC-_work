@@ -16,7 +16,7 @@ namespace myWeb_work
 
             routes.MapRoute(
                 name: "Home",
-                url: "",
+                url: "{controller}/{action}/{id}",
                 defaults: new { controller = "HomePage", action = "ShowHome", id = UrlParameter.Optional }
             );
         }
