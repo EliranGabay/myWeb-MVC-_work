@@ -19,6 +19,11 @@ namespace myWeb_work
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "HomePage", action = "ShowHome", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+               name: "SignUp",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "User", action = "Sign_Up", id = UrlParameter.Optional }
+           );
         }
     }
 }

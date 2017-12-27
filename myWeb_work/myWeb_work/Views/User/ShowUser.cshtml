@@ -1,5 +1,4 @@
 ﻿@model myWeb_work.Models.User
-
 @{
     Layout = null;
 }
@@ -9,10 +8,16 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Sign Up</title>
+    <title>ShowUser</title>
 </head>
 <body>
     <div> 
+        User ID: @Model.ID
+        <br/>
+        User Frist Name: @Model.FirstName
+        <br />
+        User Last Name: @Model.LastName
+        <br />
     </div>
 </body>
 </html>
