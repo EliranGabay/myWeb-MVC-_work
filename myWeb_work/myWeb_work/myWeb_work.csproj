@@ -245,10 +245,10 @@
     <Content Include="Views\User\Sign_Up.cshtml" />
     <Content Include="Views\User\ShowUser.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Shared\BarAction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Shared\" />
     <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>

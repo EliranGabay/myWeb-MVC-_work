@@ -7,48 +7,45 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SignUp</title>
 
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/Scripts/jquery.validate.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
-    <div>
+    <div class="container">
+        <h2>Sign Up</h2>
         <form action="SubmitReg" method="post">
-           <table>
-               <tr>
-                   <td>ID:</td>
-                   <td><input id="Text1" name="ID" type="text" value="@Model.ID" />@Html.ValidationMessageFor(x => x.ID) @ViewBag.Error</td>
-               </tr>
-               <tr>
-                   <td>Password:</td>
-                   <td><input id="Password1" name="Password" type="password" value="@Model.Password" />@Html.ValidationMessageFor(x => x.Password)</td>
-               </tr>
-               <tr></tr>
-               <tr>
-                   <td>First Name:</td>
-                   <td><input id="Text1" name="FirstName" type="text" value="@Model.FirstName" />@Html.ValidationMessageFor(x => x.FirstName)</td>
-               </tr>
-               <tr>
-                   <td>Last Name:</td>
-                   <td><input id="Text1" name="LastName" type="text" value="@Model.LastName" />@Html.ValidationMessageFor(x => x.LastName)</td>
-               </tr>
-               <tr>
-                   <td>Emai:</td>
-                   <td><input id="Text1" name="Email" type="text" value="@Model.Email" /></td>
-               </tr>
-               <tr>
-                   <td>Phone Nunmer:</td>
-                   <td><input id="Text1" name="PhoneNumber" type="text" value="@Model.PhoneNumber" />@Html.ValidationMessageFor(x => x.PhoneNumber)</td>
-               </tr>
-               <tr>
-                   <td><input id="Submit1" type="submit" value="Ok" /></td>
-                   <td><input id="Button1" type="button" value="Cancel" onclick="history.go(-1);" /></td>
-               </tr>   
-           </table>
+            <div class="form-group">
+                <label for="ID">ID:</label>
+                <input type="text" class="form-control" id="Id" placeholder="Enter ID" name="ID" value="@Model.ID" />@Html.ValidationMessageFor(x => x.ID)
+            </div>
+            <div class="form-group">
+                <label for="Password">Password:</label>
+                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="Password">@Html.ValidationMessageFor(x => x.Password)
+            </div>
+            <div class="form-group">
+                <label for="FirstName">First Name::</label>
+                <input type="text" class="form-control" id="FirstName" placeholder="Enter First Name:" name="FirstName" value="@Model.FirstName" />@Html.ValidationMessageFor(x => x.FirstName)
+            </div>
+            <div class="form-group">
+                <label for="LastName">Last Name::</label>
+                <input type="text" class="form-control" id="LastName" placeholder="Enter Last Name" name="LastName" value="@Model.LastName" />@Html.ValidationMessageFor(x => x.LastName)
+            </div>
+            <div class="form-group">
+                <label for="Email">Email:</label>
+                <input type="text" class="form-control" id="Email" placeholder="Enter Email" name="Email:" value="@Model.Email" />
+            </div>
+            <div class="form-group">
+                <label for="PhoneNumber">Phone Number:</label>
+                <input type="text" class="form-control" id="PhoneNumber" placeholder="Enter Phone Number" name="PhoneNumber" value="@Model.PhoneNumber" />@Html.ValidationMessageFor(x => x.PhoneNumber)
+            </div>
+            <div>@ViewBag.Error<p></p></div>
+            <button type="submit" class="btn btn-default">Ok</button><button type="button" class="btn btn-default" onclick="history.go(-1);">Cancel</button>
         </form>
     </div>
 </body>
