@@ -15,14 +15,19 @@ namespace myWeb_work
             routes.IgnoreRoute("{resource}.config");
 
             routes.MapRoute(
-                name: "Home",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "HomePage", action = "ShowHome", id = UrlParameter.Optional }
+                name: "HomePage",
+                url: "",
+                defaults: new { controller = "HomePage", action = "HomePage", id = UrlParameter.Optional }
             );
             routes.MapRoute(
                name: "SignUp",
                url: "{controller}/{action}/{id}",
                defaults: new { controller = "User", action = "Sign_Up", id = UrlParameter.Optional }
+           );
+            routes.MapRoute(
+               name: "Login",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "User", action = "Login", id = UrlParameter.Optional }
            );
         }
     }

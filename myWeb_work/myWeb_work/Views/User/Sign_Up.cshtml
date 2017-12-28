@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Sign_Up</title>
+    <title>SignUp</title>
 
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
@@ -17,7 +17,7 @@
 </head>
 <body>
     <div>
-        <form action="Submit" method="post">
+        <form action="SubmitReg" method="post">
            <table>
                <tr>
                    <td>ID:</td>
@@ -46,6 +46,7 @@
                </tr>
                <tr>
                    <td><input id="Submit1" type="submit" value="Ok" /></td>
+                   <td><input id="Button1" type="button" value="Cancel" onclick="history.go(-1);" /></td>
                </tr>   
            </table>
         </form>

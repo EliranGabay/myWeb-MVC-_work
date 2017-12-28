@@ -9,18 +9,9 @@ namespace myWeb_work.Controllers
     public class HomePageController : Controller
     {
         // GET: HomePage
-        public ActionResult ShowHome()
-        {
-            return View("HomePage");
-        }
-        public ActionResult UserSignUp()
+        public ActionResult HomePage()
         {
             return View();
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
-        
     }
 }
