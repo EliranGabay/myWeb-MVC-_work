@@ -45,7 +45,7 @@ namespace myWeb_work.Controllers
                 UserDal dal = new UserDal();//check info in database
                 if ((from x in dal.Users where x.ID.Equals(user.ID) && x.Password.Equals(user.Password) select x).Count() == 0)
                 {
-                    ViewBag.Error = "The ID number/Password not exist";
+                    ViewBag.Error = "~ The ID number/Password not exist";
                     return View("Login", user);
                 }
                 return View("ShowUser", user);//pass the check
