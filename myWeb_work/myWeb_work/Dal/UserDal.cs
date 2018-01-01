@@ -16,5 +16,6 @@ namespace myWeb_work.Dal
         }
         public DbSet<User> Users { get; set; }
 
+        public System.Data.Entity.DbSet<myWeb_work.Models.LoginUser> LoginUsers { get; set; }
     }
 }

@@ -246,6 +246,8 @@
     <Content Include="Views\User\ShowUser.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Shared\BarAction.cshtml" />
+    <Content Include="Views\Shared\BarActionWithUser.cshtml" />
+    <Content Include="Views\HomePage\HomePageWithUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

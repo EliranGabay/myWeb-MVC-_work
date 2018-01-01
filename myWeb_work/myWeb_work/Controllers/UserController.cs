@@ -21,6 +21,13 @@ namespace myWeb_work.Controllers
 
             return View(new LoginUser());
         }
+        public ActionResult Logout(LoginUser user)//login action
+        {
+            user.Connected = false;
+            user.ID = null;
+            user.Password = null;
+            return View("~/ Views/HomePage/HomePageW.cshtml");
+        }
         public ActionResult SubmitReg(User user)//Sign up sudmit
         {
             if (ModelState.IsValid)//all the valid is full 
@@ -48,7 +55,8 @@ namespace myWeb_work.Controllers
                     ViewBag.Error = "~ The ID number/Password not exist";
                     return View("Login", user);
                 }
-                return View("ShowUser", user);//pass the check
+                user.Connected = true;
+                return View("~/Views/HomePage/HomePageWithUser.cshtml", user);//pass the check
             }
             else
                 return View("Login", user);
