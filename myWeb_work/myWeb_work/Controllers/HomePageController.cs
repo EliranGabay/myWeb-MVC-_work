@@ -15,9 +15,5 @@ namespace myWeb_work.Controllers
         {
             return View(user);
         }
-        public ActionResult HomePageWithUser(LoginUser user)
-        {
-            return View(user);
-        }
     }
 }

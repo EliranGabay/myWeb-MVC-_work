@@ -15,7 +15,11 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    @if (@Model.Connect == true)
+    @if (Model.UserType == "admin")
+    {
+        @Html.Partial("~/Views/Shared/BarActionAdmin.cshtml", Model)
+    }
+    else if (@Model.Connect == true)
     {
         @Html.Partial("~/Views/Shared/BarActionUser.cshtml",Model)
     }

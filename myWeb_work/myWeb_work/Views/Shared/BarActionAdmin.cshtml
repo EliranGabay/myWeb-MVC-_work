@@ -1,4 +1,5 @@
-﻿
+﻿@model myWeb_work.Models.LoginUser
+
 @{
     Layout = null;
 }
@@ -8,7 +9,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -25,13 +26,12 @@
                 <a class="navbar-brand" href="#">My Dream House</a>
             </div>
             <ul class="nav navbar-nav">
-                <li class="active"><a href="@Url.Action("HomePage", "HomePage")"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                <li class="active"><a href="@Url.Action("HomePage", "HomePage",Model)"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                 <li><a href="#">Houses sold</a></li>
-                <li><a href="#">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="@Url.Action("Sign_up","User")"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="@Url.Action("Login", "User")"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="@Url.Action("MyProfile", "User",Model)"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+                <li><a href="@Url.Action("Logout", "User",Model)"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
     </nav>

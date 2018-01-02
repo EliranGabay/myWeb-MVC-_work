@@ -24,6 +24,6 @@ namespace myWeb_work.Models
         public string Email { get; set; }
         [RegularExpression("^[0-9]{10}$", ErrorMessage = "Phone number sould contain 10 digits")]
         public string PhoneNumber { get; set; }
-
+        public string UserType { get; set; }
     }
 }

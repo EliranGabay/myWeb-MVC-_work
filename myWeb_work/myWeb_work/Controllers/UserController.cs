@@ -26,11 +26,11 @@ namespace myWeb_work.Controllers
             user.Connect = false;
             user.ID = null;
             user.Password = null;
+            user.UserType = null;
             return View("~/Views/HomePage/HomePage.cshtml", user);//pass the check
         }
-        public ActionResult MyProfile(LoginUser user)//login action
+        public ActionResult MyProfile(LoginUser user)//MyProfile action
         {
-
             return View();
         }
         public ActionResult SubmitReg(User user)//Sign up sudmit
@@ -45,7 +45,7 @@ namespace myWeb_work.Controllers
                 }
                 dal.Users.Add(user);
                 dal.SaveChanges();
-                return View();//pass the check
+                return View("~/Views/HomePage/HomePage.cshtml");//pass the check
             }
             else
                 return View("Sign_Up",user);
@@ -55,11 +55,13 @@ namespace myWeb_work.Controllers
             if (ModelState.IsValid)//all the valid is full 
             {
                 UserDal dal = new UserDal();//check info in database
-                if ((from x in dal.Users where x.ID.Equals(user.ID) && x.Password.Equals(user.Password) select x).Count() == 0)
+                List<User> users = (from x in dal.Users where x.ID.Equals(user.ID) && x.Password.Equals(user.Password) select x).ToList<User>();
+                if (users.Count==0)
                 {
                     ViewBag.Error = "~ The ID number/Password not exist";
                     return View("Login", user);
                 }
+                user.UserType = users[0].UserType;
                 user.Connect = true;
                 return View("~/Views/HomePage/HomePage.cshtml",user);//pass the check
             }

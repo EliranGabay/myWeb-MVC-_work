@@ -15,6 +15,7 @@ namespace myWeb_work.Models
         [Required]
         [StringLength(20, MinimumLength = 6, ErrorMessage = "Password length must be between 6 and 20 characters")]
         public string Password { get; set; }
+        public string UserType { get; set; }
         public bool Connect { get; set; }
     }
 }
