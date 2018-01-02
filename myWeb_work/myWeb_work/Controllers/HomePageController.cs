@@ -1,4 +1,5 @@
-﻿using System;
+﻿using myWeb_work.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,10 @@ namespace myWeb_work.Controllers
     {
         // GET: HomePage
         public ActionResult HomePage(LoginUser user)
+        {
+            return View(user);
+        }
+        public ActionResult HomePageWithUser(LoginUser user)
         {
             return View(user);
         }
