@@ -1,4 +1,4 @@
-﻿
+﻿@model myWeb_work.Models.LoginUser
 @{
     Layout = null;
 }
@@ -15,7 +15,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    @Html.Partial("~/Views/Shared/BarAction.cshtml")
+    @if (@Model.Connect == true)
+    {
+        @Html.Partial("~/Views/Shared/BarActionUser.cshtml",Model)
+    }
+    else
+    {
+         @Html.Partial("~/Views/Shared/BarAction.cshtml")
+    }
     <div class="jumbotron text-center">
         <h1>My Dream House</h1>
         <p>Here you can buy the house you've always dreamed of...!</p>

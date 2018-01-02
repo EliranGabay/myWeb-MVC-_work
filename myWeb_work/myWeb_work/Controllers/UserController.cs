@@ -21,6 +21,18 @@ namespace myWeb_work.Controllers
 
             return View(new LoginUser());
         }
+        public ActionResult Logout(LoginUser user)//logout action
+        {
+            user.Connect = false;
+            user.ID = null;
+            user.Password = null;
+            return View("~/Views/HomePage/HomePage.cshtml", user);//pass the check
+        }
+        public ActionResult MyProfile(LoginUser user)//login action
+        {
+
+            return View();
+        }
         public ActionResult SubmitReg(User user)//Sign up sudmit
         {
             if (ModelState.IsValid)//all the valid is full 
@@ -33,7 +45,7 @@ namespace myWeb_work.Controllers
                 }
                 dal.Users.Add(user);
                 dal.SaveChanges();
-                return View("ShowUser", user);//pass the check
+                return View();//pass the check
             }
             else
                 return View("Sign_Up",user);
@@ -48,7 +60,8 @@ namespace myWeb_work.Controllers
                     ViewBag.Error = "~ The ID number/Password not exist";
                     return View("Login", user);
                 }
-                return View("ShowUser", user);//pass the check
+                user.Connect = true;
+                return View("~/Views/HomePage/HomePage.cshtml",user);//pass the check
             }
             else
                 return View("Login", user);
