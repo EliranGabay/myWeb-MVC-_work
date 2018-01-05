@@ -25,14 +25,14 @@ namespace myWeb_work.Controllers
                 if ((from x in dal.Houses where x.HouseName.Contains(house.HouseName) || x.HouseAddress.Contains(house.HouseAddress) select x).Count() != 0)
                 {
                     ViewBag.Error = "the House name or address exist";
-                    return View("House", house);
+                    return View("HouseCreate", house);
                 }
                 dal.Houses.Add(house);
                 dal.SaveChanges();
                 return View("~/Views/HomePage/HomePage.cshtml", user);//pass the check
             }
             else
-                return View("House", house);
+                return View("HouseCreate", house);
         }
     }
 }
