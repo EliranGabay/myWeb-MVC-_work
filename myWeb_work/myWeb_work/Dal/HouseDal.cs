@@ -15,7 +15,5 @@ namespace myWeb_work.Dal
             modelBuilder.Entity<House>().ToTable("Houses");
         }
         public DbSet<House> Houses { get; set; }
-
-        //public System.Data.Entity.DbSet<myWeb_work.Models.LoginUser> LoginUsers { get; set; }
     }
 }

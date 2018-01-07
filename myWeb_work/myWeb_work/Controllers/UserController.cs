@@ -27,6 +27,11 @@ namespace myWeb_work.Controllers
             user.ID = null;
             user.Password = null;
             user.UserType = null;
+            Session["UserName"] = null;
+            Session["Connect"] = null;
+            Session["UserType"] = null;
+            Session["FullName"] = null;
+            Session["UserNum"] = null;
             return View("~/Views/HomePage/HomePage.cshtml", user);//pass the check
         }
         public ActionResult MyProfile(LoginUser user)//MyProfile action
@@ -63,6 +68,11 @@ namespace myWeb_work.Controllers
                 }
                 user.UserType = users[0].UserType;
                 user.Connect = true;
+                Session["UserName"] = user.ID;
+                Session["Connect"] =user.Connect;
+                Session["UserType"] =user.UserType;
+                Session["FullName"] = users[0].FirstName + " " + users[0].LastName;
+                Session["UserNumber"] = users[0].UserNumber;
                 return View("~/Views/HomePage/HomePage.cshtml",user);//pass the check
             }
             else

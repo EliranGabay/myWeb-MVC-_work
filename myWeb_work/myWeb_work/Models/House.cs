@@ -20,8 +20,8 @@ namespace myWeb_work.Models
         public string HouseDetails { get; set; }
         public bool HouseSell { get; set; }
         [Required]
-        [RegularExpression("^[0-9]$", ErrorMessage = "House Price containing onle numbers")]
-        public float HousePrice { get; set; }
+        [RegularExpression("^[0-9]*$", ErrorMessage = "House Price containing onle numbers")]
+        public Double HousePrice { get; set; }
         public bool HouseRequest { get; set;}
         [Key]
         public int HouseNumber { get; set; }

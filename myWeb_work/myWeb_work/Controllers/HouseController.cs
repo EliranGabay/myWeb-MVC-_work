@@ -10,11 +10,17 @@ namespace myWeb_work.Controllers
 {
     public class HouseController : Controller
     {
-        LoginUser user;
+        LoginUser user = new LoginUser();
         // GET: House
-        public ActionResult HouseCreate(LoginUser user)
+        public ActionResult UserLog()
         {
-            this.user = user;
+            user.ID = (string)Session["UserName"];
+            user.UserType = (string)Session["UserType"];
+            user.Connect = (bool)Session["Connect"];
+            return new EmptyResult();
+        }
+        public ActionResult HouseCreate()
+        {
             return View(new House());
         }
         public ActionResult SubmitCreate(House house)
@@ -27,9 +33,11 @@ namespace myWeb_work.Controllers
                     ViewBag.Error = "the House name or address exist";
                     return View("HouseCreate", house);
                 }
+                house.HouseSeller = (int)Session["UserNumber"];
                 dal.Houses.Add(house);
                 dal.SaveChanges();
-                return View("~/Views/HomePage/HomePage.cshtml", user);//pass the check
+                UserLog();
+                return View("~/Views/HomePage/HomePage.cshtml",user);//pass the check
             }
             else
                 return View("HouseCreate", house);
