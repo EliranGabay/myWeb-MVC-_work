@@ -202,9 +202,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Image\HomeSold1.jpg" />
-    <Content Include="App_Data\Image\HomeSold2.jpg" />
-    <Content Include="App_Data\Image\HomeSold3.jpg" />
+    <Content Include="DataStyle\Image\HomeSold1.jpg" />
+    <Content Include="DataStyle\Image\HomeSold2.jpg" />
+    <Content Include="DataStyle\Image\HomeSold3.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -279,6 +279,7 @@
     <Content Include="Views\HomePage\CarouselHome.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\AdminUser\" />
   </ItemGroup>
   <ItemGroup>
