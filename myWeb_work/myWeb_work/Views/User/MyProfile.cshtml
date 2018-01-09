@@ -1,0 +1,46 @@
+﻿@model myWeb_work.Models.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyProfile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .display-label{color:#1467a3;}
+        .editor-label{color:#1467a3;}
+        
+    </style>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>@Model.FirstName @Model.LastName</h1>
+        <p>Here you can update your Profie information</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <nav class="col-sm-3">
+                <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+                    <li class="affix"><a data-toggle="pill" href="#MyProfile" >My Profile</a></li>
+                    <li><a data-toggle="pill" href="#Edit">Edit Profile</a></li>
+                    <li><a data-toggle="pill" href="#section3">Section 3</a></li>
+                </ul>
+            </nav>
+            <div class="col-sm-9"> 
+                <div class="tab-content">
+                    <div id="MyProfile" class="tab-pane fade in active">@{Html.RenderPartial("PartialViews/Profile", this.Model);}</div>
+                    <div id="Edit" class="tab-pane fade">@{Html.RenderPartial("PartialViews/EditProfile", this.Model);}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .b2{
+            background-color:#212121;
+            color:#ffffff;
+        }
+    </style>
 </head>
 <body>
     @if (Model.UserType == "admin")
@@ -21,11 +27,11 @@
     }
     else if (@Model.Connect == true)
     {
-        @Html.Partial("~/Views/Shared/BarActionUser.cshtml",Model)
+        @Html.Partial("~/Views/Shared/BarActionUser.cshtml", Model)
     }
     else
     {
-         @Html.Partial("~/Views/Shared/BarAction.cshtml")
+        @Html.Partial("~/Views/Shared/BarAction.cshtml")
     }
     <div class="jumbotron text-center">
         <h1>My Dream House</h1>
@@ -33,8 +39,38 @@
     </div>
 
     <div class="container">
-        @Html.Partial("~/Views/HomePage/CarouselHome.cshtml")
-    </div>
+        <div class="jumbotron text-center"><h1 class="center-block">The Best Houses are Sold this Year!</h1></div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">1st Place</div>
+                    <div class="panel-body"><img src="~/DataStyle/Image/HomeSold1.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+                    <div class="panel-footer">Sold for 10 milion $!!!</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">2st Place</div>
+                    <div class="panel-body"><img src="~/DataStyle/Image/HomeSold2.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+                    <div class="panel-footer">Sold for 7.5 milion $!!!</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">3st Place</div>
+                    <div class="panel-body"><img src="~/DataStyle/Image/HomeSold3.jpg" class="img-responsive" style="width:100%" alt="Image"></div>
+                    <div class="panel-footer">Sold for 4.5 milion $!!!</div>
+                </div>
+            </div>
+         </div>
+     </div>
 
+    <div class="container">
+
+    </div>
+     <footer class="container-fluid b2 text-center">
+                <h>Project in MVC</h>
+                <p>Eliran Gabay - Linoy sriker</p>
+     </footer>
 </body>
 </html>

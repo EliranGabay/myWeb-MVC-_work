@@ -1,0 +1,17 @@
+﻿@model myWeb_work.Models.User
+
+<div class="menu">
+    <div><h5>Profie Information</h5></div>
+    <hr />
+    <div class="display-label">@Html.LabelFor(m => m.FirstName)</div>
+    <div class="display-field">@Model.FirstName</div>
+    <div class="display-label">@Html.LabelFor(m => m.LastName)</div>
+    <div class="display-field">@Model.LastName</div>
+    <div class="display-label">@Html.LabelFor(m => m.ID)</div>
+    <div class="display-field">@Model.ID</div>
+    <div class="display-label">@Html.LabelFor(m => m.PhoneNumber)</div>
+    <div class="display-field">@Model.PhoneNumber</div>
+    <div class="display-label">@Html.LabelFor(m => m.Email)</div>
+    <div class="display-field">@Model.Email</div>
+</div>
+

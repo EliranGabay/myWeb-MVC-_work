@@ -36,7 +36,22 @@ namespace myWeb_work.Controllers
         }
         public ActionResult MyProfile(LoginUser user)//MyProfile action
         {
-            return View();
+            UserDal dal = new UserDal();//check info in database
+            List<User> users = (from x in dal.Users where x.ID.Equals("987654321") select x).ToList<User>();
+            return View(users[0]);
+        }
+
+        public ActionResult SubmitUpdate(User user)
+        {
+                UserDal dal = new UserDal();//check info in database
+                List<User> users = (from x in dal.Users where x.ID.Equals(user.ID) select x).ToList<User>();
+                user.Password = users[0].Password;
+                user.UserType = users[0].UserType;
+                user.UserNumber = users[0].UserNumber;
+                dal.Users.Remove(users[0]);
+                dal.Users.Add(user);
+                dal.SaveChanges();
+                return View();
         }
         public ActionResult SubmitReg(User user)//Sign up sudmit
         {
