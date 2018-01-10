@@ -6,9 +6,9 @@ using myWeb_work.Models;
 
 namespace myWeb_work.ModelView
 {
-    public class UserProfileView
+    public class UserHouseView
     {
         public User user { get; set; }
-        public List<User> users { get; set; }
+        public List<House> MyHouses { get; set; }
     }
 }

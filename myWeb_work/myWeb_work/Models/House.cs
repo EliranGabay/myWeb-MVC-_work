@@ -14,7 +14,7 @@ namespace myWeb_work.Models
         [Required]
         [StringLength(50, MinimumLength = 10, ErrorMessage = "House Address length must be between 10 and 50 characters")]
         public string HouseAddress { get; set; }
-        public int HouseSeller { get; set; }
+        public string HouseSeller { get; set; }
         [Required]
         [StringLength(200, MinimumLength = 15, ErrorMessage = "House Details length must be between 15 and 200 characters")]
         public string HouseDetails { get; set; }

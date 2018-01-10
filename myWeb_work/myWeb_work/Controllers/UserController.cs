@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using myWeb_work.Dal;
+using myWeb_work.ModelView;
 
 namespace myWeb_work.Controllers
 {
@@ -13,7 +14,6 @@ namespace myWeb_work.Controllers
         // GET: User
         public ActionResult Sign_Up()//sign up action
         {
-            
             return View(new User());
         }
         public ActionResult Login()//login action
@@ -37,21 +37,20 @@ namespace myWeb_work.Controllers
         public ActionResult MyProfile(LoginUser user)//MyProfile action
         {
             UserDal dal = new UserDal();//check info in database
-            List<User> users = (from x in dal.Users where x.ID.Equals("987654321") select x).ToList<User>();
+            List<User> users = (from x in dal.Users where x.ID.Equals(user.ID) select x).ToList<User>();
+            HouseDal Hdal = new HouseDal();
+            users[0].MyHouses= (from x in Hdal.Houses where x.HouseSeller.Equals(user.ID) select x).ToList<House>();
             return View(users[0]);
         }
-
-        public ActionResult SubmitUpdate(User user)
+        public ActionResult SubmitUpdate(User user)//update profile
         {
-                UserDal dal = new UserDal();//check info in database
-                List<User> users = (from x in dal.Users where x.ID.Equals(user.ID) select x).ToList<User>();
-                user.Password = users[0].Password;
-                user.UserType = users[0].UserType;
-                user.UserNumber = users[0].UserNumber;
-                dal.Users.Remove(users[0]);
-                dal.Users.Add(user);
-                dal.SaveChanges();
-                return View();
+            UserDal dal = new UserDal();//check info in database
+            List<User> users = (from x in dal.Users where x.ID.Equals(user.ID) select x).ToList<User>();
+            if (user.Equal(user,users[0])) return View("MyProfile",user);
+            dal.Users.Remove(users[0]);//remove the pre user
+            dal.Users.Add(user);//add update user
+            dal.SaveChanges();
+            return View("MyProfile", user);
         }
         public ActionResult SubmitReg(User user)//Sign up sudmit
         {
@@ -63,6 +62,7 @@ namespace myWeb_work.Controllers
                     ViewBag.Error = "the ID number is existing";
                     return View("Sign_Up", user);
                 }
+                user.UserType = "regular";
                 dal.Users.Add(user);
                 dal.SaveChanges();
                 return View("~/Views/HomePage/HomePage.cshtml");//pass the check

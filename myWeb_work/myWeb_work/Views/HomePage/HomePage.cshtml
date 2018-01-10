@@ -21,17 +21,17 @@
     </style>
 </head>
 <body>
-    @if (Model.UserType == "admin")
+    @if (Model == null||Model.Connect==false)
+    {
+        @Html.Partial("~/Views/Shared/BarAction.cshtml")
+    }
+    else if (Model.UserType == "admin")
     {
         @Html.Partial("~/Views/Shared/BarActionAdmin.cshtml", Model)
     }
-    else if (@Model.Connect == true)
-    {
-        @Html.Partial("~/Views/Shared/BarActionUser.cshtml", Model)
-    }
     else
     {
-        @Html.Partial("~/Views/Shared/BarAction.cshtml")
+            @Html.Partial("~/Views/Shared/BarActionUser.cshtml", Model)
     }
     <div class="jumbotron text-center">
         <h1>My Dream House</h1>

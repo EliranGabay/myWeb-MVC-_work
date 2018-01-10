@@ -33,7 +33,7 @@ namespace myWeb_work.Controllers
                     ViewBag.Error = "the House name or address exist";
                     return View("HouseCreate", house);
                 }
-                house.HouseSeller = (int)Session["UserNumber"];
+                house.HouseSeller = (string)Session["UserName"];
                 dal.Houses.Add(house);
                 dal.SaveChanges();
                 UserLog();

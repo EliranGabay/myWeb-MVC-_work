@@ -198,7 +198,7 @@
     <Compile Include="Models\Users.cs">
       <DependentUpon>DataSql.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelView\UserProfileView.cs" />
+    <Compile Include="ModelView\UserHouseView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -279,6 +279,7 @@
     <Content Include="Views\User\MyProfile.cshtml" />
     <Content Include="Views\User\PartialViews\Profile.cshtml" />
     <Content Include="Views\User\PartialViews\EditProfile.cshtml" />
+    <Content Include="Views\User\PartialViews\MyHouseSell.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

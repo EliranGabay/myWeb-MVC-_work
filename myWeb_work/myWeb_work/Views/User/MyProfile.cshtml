@@ -16,10 +16,45 @@
     <style>
         .display-label{color:#1467a3;}
         .editor-label{color:#1467a3;}
-        
+        .grid{
+            font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            width: 100%;
+            display: table;
+            border-collapse: collapse;
+            border: solid 1px #000000;
+            background-color: white;
+            }
+        .grid th,td{
+            border: 1px solid #000000;
+            padding: 3px 7px 2px;
+            }
+        .grid-header{
+            background-color: rgb(200,200,200);
+            color: #FFFFFF;
+            padding-bottom: 4px;
+            padding-top: 5px;
+            text-align: left;
+            }
+        .grid-row-style{
+            padding: 3px 7px 2px ;
+            }
+        .grid-alternating-row{
+            background-color: #EAF2D3;
+            padding: 3px 7px 2px;
+            }
+        .grid thead{background-color: rgb(200,200,200);}
+        .grid th a{color: #1467a3;}
+        .grid .columnHouseName{width: 150px;}
+        .grid .columnHouseAddress{width: 150px;}
+        .grid .columnHouseDetails{width: 200px;}
+        .grid .columnHouseSell{width: 150px;}
+        .grid .columnHousePrice{width: 150px;}
+        .grid .columnHouseRequest{width: 150px;}
     </style>
 </head>
 <body>
+    @Html.Partial("~/Views/Shared/BarActionUser.cshtml")
     <div class="jumbotron text-center">
         <h1>@Model.FirstName @Model.LastName</h1>
         <p>Here you can update your Profie information</p>
@@ -30,13 +65,14 @@
                 <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
                     <li class="affix"><a data-toggle="pill" href="#MyProfile" >My Profile</a></li>
                     <li><a data-toggle="pill" href="#Edit">Edit Profile</a></li>
-                    <li><a data-toggle="pill" href="#section3">Section 3</a></li>
+                    <li><a data-toggle="pill" href="#Grid">My House</a></li>
                 </ul>
             </nav>
             <div class="col-sm-9"> 
                 <div class="tab-content">
                     <div id="MyProfile" class="tab-pane fade in active">@{Html.RenderPartial("PartialViews/Profile", this.Model);}</div>
                     <div id="Edit" class="tab-pane fade">@{Html.RenderPartial("PartialViews/EditProfile", this.Model);}</div>
+                    <div id="Grid" class="tab-pane fade">@{Html.RenderPartial("PartialViews/MyHouseSell", this.Model);}</div>
                 </div>
             </div>
         </div>
