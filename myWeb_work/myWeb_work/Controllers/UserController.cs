@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using myWeb_work.Dal;
-using myWeb_work.ModelView;
 
 namespace myWeb_work.Controllers
 {
@@ -40,6 +39,7 @@ namespace myWeb_work.Controllers
             List<User> users = (from x in dal.Users where x.ID.Equals(user.ID) select x).ToList<User>();
             HouseDal Hdal = new HouseDal();
             users[0].MyHouses= (from x in Hdal.Houses where x.HouseSeller.Equals(user.ID) select x).ToList<House>();
+            ViewBag.user = user;
             return View(users[0]);
         }
         public ActionResult SubmitUpdate(User user)//update profile

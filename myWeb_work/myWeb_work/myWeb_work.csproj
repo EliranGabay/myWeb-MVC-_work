@@ -177,28 +177,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataSql.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSql.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataSql.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSql.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\DataSql.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSql.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\House.cs" />
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\Users.cs">
-      <DependentUpon>DataSql.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ModelView\UserHouseView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -213,27 +194,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\DataSql.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataSql.edmx</DependentUpon>
-      <LastGenOutput>DataSql.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\DataSql.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataSql.edmx</DependentUpon>
-      <LastGenOutput>DataSql.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Models\DataSql.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataSql.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\DataSql.edmx.diagram">
-      <DependentUpon>DataSql.edmx</DependentUpon>
     </Content>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -255,6 +219,12 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
@@ -280,9 +250,14 @@
     <Content Include="Views\User\PartialViews\Profile.cshtml" />
     <Content Include="Views\User\PartialViews\EditProfile.cshtml" />
     <Content Include="Views\User\PartialViews\MyHouseSell.cshtml" />
+    <Content Include="Views\House\HouseBid.cshtml" />
+    <Content Include="Views\House\HouseSell.cshtml" />
+    <Content Include="Views\House\PartialViews\HouseLogo.cshtml" />
+    <Content Include="Views\House\PartialViews\PopupHouseD.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ModelView\" />
     <Folder Include="Views\AdminUser\" />
   </ItemGroup>
   <ItemGroup>

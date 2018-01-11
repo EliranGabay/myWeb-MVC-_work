@@ -54,7 +54,7 @@
     </style>
 </head>
 <body>
-    @Html.Partial("~/Views/Shared/BarActionUser.cshtml")
+    @Html.Partial("~/Views/Shared/BarActionUser.cshtml",(object)ViewBag.user)
     <div class="jumbotron text-center">
         <h1>@Model.FirstName @Model.LastName</h1>
         <p>Here you can update your Profie information</p>

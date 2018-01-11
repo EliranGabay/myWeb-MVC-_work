@@ -1,0 +1,26 @@
+﻿@model myWeb_work.Models.House
+
+<div class="menu">
+    <div class="modal fade" id="ModalDetails" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">@Model.HouseName</h4>
+                </div>
+                <div class="modal-body">
+                    <img src="~/DataStyle/Image/HomeSold1.jpg" alt="@Model.HouseName" width="400" height="300">
+                    <div class="jumbotron text-center">
+                        <p>Address: @Model.HouseAddress</p>
+                        <p>Details: @Model.HouseDetails</p>
+                        <p><strong>Price: @Model.HousePrice</strong></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

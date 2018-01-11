@@ -42,5 +42,13 @@ namespace myWeb_work.Controllers
             else
                 return View("HouseCreate", house);
         }
+        public ActionResult HouseSell()
+        {
+            HouseDal dal = new HouseDal();//check info in database
+            List<House> houses = (from x in dal.Houses where x.HouseRequest.Equals(true) && x.HouseSell.Equals(false) select x).ToList<House>();
+            UserLog();
+            ViewBag.user = user;
+            return View(houses);
+        }
     }
 }
