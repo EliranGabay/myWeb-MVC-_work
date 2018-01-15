@@ -1,4 +1,4 @@
-﻿@model myWeb_work.Models.User
+﻿@model List<myWeb_work.Models.User>
 
 @{
     Layout = null;
@@ -9,13 +9,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>MyProfile</title>
+    <title>listofUsers</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-        .display-label{color:#1467a3;}
-        .editor-label{color:#1467a3;}
         .grid{
             font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
             font-size: 1.2em;
@@ -55,29 +53,33 @@
     </style>
 </head>
 <body>
-    @Html.Partial("~/Views/Shared/BarActionUser.cshtml",(object)ViewBag.user)
+    @Html.Partial("~/Views/Shared/BarActionAdmin.cshtml", (object)ViewBag.user)
     <div class="jumbotron text-center">
-        <h1>@Model.FirstName @Model.LastName</h1>
-        <p>Here you can update your Profie information</p>
+        <h1>User Control</h1>
+        <p>Here you can update all the Users website</p>
     </div>
-    <div class="container">
-        <div class="row">
-            <nav class="col-sm-3">
-                <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
-                    <li class="affix"><a data-toggle="pill" href="#MyProfile" >My Profile</a></li>
-                    <li><a data-toggle="pill" href="#Edit">Edit Profile</a></li>
-                    <li><a data-toggle="pill" href="#Grid">My House</a></li>
-                </ul>
-            </nav>
-            <div class="col-sm-9"> 
-                <div class="tab-content">
-                    <div id="MyProfile" class="tab-pane fade in active">@{Html.RenderPartial("PartialViews/Profile", this.Model);}</div>
-                    <div id="Edit" class="tab-pane fade">@{Html.RenderPartial("PartialViews/EditProfile", this.Model);}</div>
-                    <div id="Grid" class="tab-pane fade">@{Html.RenderPartial("PartialViews/MyHouseSell", this.Model);}</div>
-                </div>
-            </div>
+    <div class="container-fluid">
+        <div class="Grid">
+            @{WebGrid grid = new WebGrid(source: this.Model);
+                @: @grid.GetHtml(tableStyle: "grid",
+                headerStyle: "grid-header",
+                footerStyle: "grid-footer",
+                alternatingRowStyle: "grid-alternating-row",
+                selectedRowStyle: "grid-selected-row",
+                rowStyle: "grid-row-style",
+                mode: WebGridPagerModes.All,
+                columns: grid.Columns(grid.Column("ID", "User ID", style: "columnID"),
+                grid.Column("FirstName", "First Name", style: "columnFirstName"),
+                grid.Column("LastName", "Last Name", style: "columnLastName"),
+                grid.Column("PhoneNumber", "PhoneNumber", style: "columnPhoneNumber"),
+                grid.Column("Email", "Email", style: "columnEmail"),
+                grid.Column("UserType", "UserType", style: "columnUserType"),
+                grid.Column("Options", null, style: "columnActions", format:
+                @<text>
+                    @Html.ActionLink("Delete", "DeleteUser", "Admin",new { id = item.ID },null)
+                </text>)))
+            }
         </div>
-    </div>
-
+        </div>
 </body>
 </html>

@@ -50,5 +50,17 @@ namespace myWeb_work.Controllers
             ViewBag.user = user;
             return View(houses);
         }
+        //public ActionResult HouseDetails(string houseNum)
+        //{
+        //    HouseDal dal = new HouseDal();//check info in database
+        //    List<House> houses = (from x in dal.Houses where x.HouseNumber.Equals(houseNum)select x).ToList<House>();
+        //    return PartialView("PartialViews/PopupHouseD", houses[0]);
+        //}
+        public ActionResult BitForHouse(House house)
+        {
+            BidDal dal = new BidDal();
+            UserLog();
+            return View();
+        }
     }
 }

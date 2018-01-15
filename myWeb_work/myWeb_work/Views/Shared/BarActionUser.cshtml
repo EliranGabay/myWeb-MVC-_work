@@ -33,7 +33,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "MyProfile" ? "active" : "")"><a href="@Url.Action("MyProfile", "User",Model)"><span class="glyphicon glyphicon-user"></span> @Session["FullName"]</a></li>
-                <li><a href="@Url.Action("Logout", "User",Model)"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                <li><a href="@Url.Action("Logout","User",Model)"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
     </nav>

@@ -10,7 +10,15 @@ namespace myWeb_work.Controllers
 {
     public class UserController : Controller
     {
+        LoginUser LUser = new LoginUser();
         // GET: User
+        public ActionResult UserLog()
+        {
+            LUser.ID = (string)Session["UserName"];
+            LUser.UserType = (string)Session["UserType"];
+            LUser.Connect = (bool)Session["Connect"];
+            return new EmptyResult();
+        }
         public ActionResult Sign_Up()//sign up action
         {
             return View(new User());
@@ -44,13 +52,14 @@ namespace myWeb_work.Controllers
         }
         public ActionResult SubmitUpdate(User user)//update profile
         {
+            UserLog();
             UserDal dal = new UserDal();//check info in database
             List<User> users = (from x in dal.Users where x.ID.Equals(user.ID) select x).ToList<User>();
-            if (user.Equal(user,users[0])) return View("MyProfile",user);
+            if (user.Equal(user,users[0])) return RedirectToAction("MyProfile", "User", LUser);
             dal.Users.Remove(users[0]);//remove the pre user
             dal.Users.Add(user);//add update user
             dal.SaveChanges();
-            return View("MyProfile", user);
+            return RedirectToAction("MyProfile", "User", LUser);
         }
         public ActionResult SubmitReg(User user)//Sign up sudmit
         {
