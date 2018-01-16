@@ -1,13 +1,13 @@
 ﻿@model myWeb_work.Models.House
 
 <div class="menu">
-    <div class="col-sm-4">
-        <div class="thumbnail">
-            <img src="~/DataStyle/Image/HomeSold1.jpg" alt="@Model.HouseName" width="400" height="300">
-            <p><strong>@Model.HouseName</strong></p>
-            <p>@Model.HouseAddress</p>
-            <button class="btn btn-info btn">Bid for This House</button> <button type="button" class="btn btn-info btn" data-toggle="modal" data-target="#ModalDetails">House Details</button>
-        </div>
+        <div class="col-sm-4" id="@Model.HouseNumber">
+            <div class="thumbnail">
+                <img src="~/DataStyle/Image/HomeSold1.jpg" alt="@Model.HouseName" width="400" height="300">
+                <p><strong>@Model.HouseName</strong></p>
+                <p>@Model.HouseAddress</p>
+                <button class="btn btn-info btn" id="btn2">Bid for This House</button>
+                <button class="btn btn-info btn" id="HDM">House Details</button>
+            </div>
     </div>
-    @{Html.RenderPartial("PartialViews/PopupHouseD", Model);}
 </div>

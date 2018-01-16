@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>HousesRequests</title>
+    <title>HousesSell</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -50,14 +50,13 @@
         .grid .columnHouseDetails{width: 200px;}
         .grid .columnHouseSell{width: 150px;}
         .grid .columnHousePrice{width: 150px;}
-        .grid .columnHouseRequest{width: 150px;}
     </style>
 </head>
 <body>
     @Html.Partial("~/Views/Shared/BarActionAdmin.cshtml", (object)ViewBag.user)
     <div class="jumbotron text-center">
-        <h1>Houses Requests Control</h1>
-        <p>Here you can update all the houses requests sell in website</p>
+        <h1>Houses Sold Control</h1>
+        <p>Here you can see all the houses sold on the website</p>
     </div>
     <div class="container-fluid">
         <div class="Grid">
@@ -74,13 +73,8 @@
                 grid.Column("HouseAddress", "House Address", style: "columnHouseAddress"),
                 grid.Column("HouseDetails", "House Details", style: "columnHouseDetails"),
                 grid.Column("HouseSell", "House Sell", style: "columnHouseSell"),
-                grid.Column("HousePrice", "House Price", style: "columnHousePrice"),
-                grid.Column("HouseRequest", "House Request", style: "columnHouseRequest"),
-                grid.Column("Options", null, style: "columnActions", format:
-                @<text>
-                    @Html.ActionLink("Approval", "ApprovalHouse", "Admin", new { HouseNumber = item.HouseNumber }, null)
-                </text>)))
-            }
+                grid.Column("HousePrice", "House Price", style: "columnHousePrice")))
+                }
         </div>
     </div>
 </body>

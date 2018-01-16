@@ -27,7 +27,7 @@
             <ul class="nav navbar-nav">
                 
                 <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "HomePage" ? "active" : "")"><a href="@Url.Action("HomePage", "HomePage",Model)"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                <li><a href="@Url.Action("HouseSell","House")">Buy Home</a></li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "HouseSell" ? "active" : "")"><a href="@Url.Action("HouseSell","House")">Buy Home</a></li>
                 <li><a href="@Url.Action("HouseCreate", "House")">Sell Home</a></li>
                 <li><a href="#">About</a></li>
             </ul>

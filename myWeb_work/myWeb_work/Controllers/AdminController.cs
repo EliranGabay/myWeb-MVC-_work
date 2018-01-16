@@ -55,5 +55,12 @@ namespace myWeb_work.Controllers
             UserLog();
             return RedirectToAction("HousesRequests", "Admin", user);
         }
+        public ActionResult HousesSold(LoginUser user)
+        {
+            HouseDal dal = new HouseDal();
+            List<House> houses = (from x in dal.Houses where x.HouseSell.Equals(true) select x).ToList<House>();
+            ViewBag.user = user;
+            return View("HousesSold", houses);
+        }
     }
 }

@@ -16,34 +16,67 @@
     <script src="~/Scripts/jquery-3.2.1.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-
     <style>
-          .body{background:#2d2d30}
+          .body{background:#fff}
           .bg-1 {
-            background: #2d2d30;
+            background: #fff;
             }
            .bg-1 h3 {color: #fff;}
            .bg-1 p {font-style: italic;}
            .bu {margin:5px;}
            .text-center{align-items}
+                   .display-label{color:#1467a3;}
+        .editor-label{color:#1467a3;}
+        .grid{
+            font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            width: 100%;
+            display: table;
+            border-collapse: collapse;
+            border: solid 1px #000000;
+            background-color: white;
+            }
+        .grid th,td{
+            border: 1px solid #000000;
+            padding: 3px 7px 2px;
+            text-align:center;
+            }
+        .grid-header{
+            background-color: rgb(200,200,200);
+            color: #FFFFFF;
+            padding-bottom: 4px;
+            padding-top: 5px;
+            text-align: left;
+            }
+        .grid-row-style{
+            padding: 3px 7px 2px ;
+            }
+        .grid-alternating-row{
+            background-color: #EAF2D3;
+            padding: 3px 7px 2px;
+            }
+        .grid thead{background-color: rgb(200,200,200);}
+        .grid th a{color: #1467a3;}
+        .grid .columnHouseName{width: 150px;}
+        .grid .columnHouseAddress{width: 150px;}
+        .grid .columnHouseDetails{width: 200px;}
+        .grid .columnHouseSell{width: 150px;}
+        .grid .columnHousePrice{width: 150px;}
+        .grid .columnHouseRequest{width: 150px;}
+        .grid .columnActions{width: 150px;}
     </style>
 </head>
 <body>
     @Html.Partial("~/Views/Shared/BarActionUser.cshtml", (object)ViewBag.user)
     <div class="jumbotron text-center">
         <h1>Buy Your Dream House</h1>
-        <p>Here you can buy the house you've always dreamed of</p>
+        <p>Here you can buy the house you've always dreamed of...</p>
         <div class="bg-1">
-            <div class="container">
-                <ul></ul>
-                <div class="row text-center">
-                    @for (int i = 0; i < (Model).Count; i++)
-                    {
-                        Html.RenderPartial("PartialViews/HouseLogo", (Model)[i]);
-                    }
-                </div>
-            </div>
-            </div>
+        <div class="container">
+            <ul></ul>
+            @{Html.RenderPartial("PartialViews/GridItems", Model);}
         </div>
-    </body>
+        </div>
+    </div>
+</body>
 </html>

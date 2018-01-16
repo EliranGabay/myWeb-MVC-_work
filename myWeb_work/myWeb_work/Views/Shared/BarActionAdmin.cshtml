@@ -27,7 +27,7 @@
             </div>
             <ul class="nav navbar-nav">
                 <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "HomePage" ? "active" : "")"><a href="@Url.Action("HomePage", "HomePage",Model)"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                <li><a href="#">Houses sold</a></li>
+                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "HousesSold" ? "active" : "")"><a href="@Url.Action("HousesSold", "Admin",Model)">Houses sold</a></li>
                 <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "ListOfUsers" ? "active" : "")"><a href="@Url.Action("ListOfUsers", "Admin",Model)">list of Users</a></li>
                 <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "HousesRequests" ? "active" : "")"><a href="@Url.Action("HousesRequests", "Admin",Model)">Houses Requests</a></li>
             </ul>

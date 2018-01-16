@@ -14,6 +14,6 @@ namespace myWeb_work.Dal
                 base.OnModelCreating(modelBuilder);
                 modelBuilder.Entity<Bid>().ToTable("HousesBid");
             }
-            public DbSet<House> Houses { get; set; }
+            public DbSet<Bid> Bids { get; set; }
     }
 }

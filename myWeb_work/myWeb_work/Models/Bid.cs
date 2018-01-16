@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,9 +8,11 @@ namespace myWeb_work.Models
 {
     public class Bid
     {
-        int HouseNumber { get; set; }
-        string BitUserID { get; set; }
-        bool BidAccepted { get; set;}
-        double BidPrice { get; set; }
+        public int HouseNumber { get; set; }
+        public string BitUserID { get; set; }
+        public bool BidAccepted { get; set;}
+        public double BidPrice { get; set; }
+        [Key]
+        public int BidNumber { get; set; }
     }
 }
