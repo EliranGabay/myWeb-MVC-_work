@@ -9,7 +9,7 @@ namespace myWeb_work.Models
     public class Bid
     {
         public int HouseNumber { get; set; }
-        public string BitUserID { get; set; }
+        public string BidUserID { get; set; }
         public bool BidAccepted { get; set;}
         public double BidPrice { get; set; }
         [Key]

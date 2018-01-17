@@ -255,14 +255,14 @@
     <Content Include="Views\User\PartialViews\Profile.cshtml" />
     <Content Include="Views\User\PartialViews\EditProfile.cshtml" />
     <Content Include="Views\User\PartialViews\MyHouseSell.cshtml" />
-    <Content Include="Views\House\BidForHouse.cshtml" />
     <Content Include="Views\House\HouseSell.cshtml" />
-    <Content Include="Views\House\PartialViews\HouseLogo.cshtml" />
-    <Content Include="Views\House\PartialViews\PopupHouseD.cshtml" />
     <Content Include="Views\Admin\ListOfUsers.cshtml" />
     <Content Include="Views\Admin\HousesRequests.cshtml" />
     <Content Include="Views\Admin\HousesSold.cshtml" />
     <Content Include="Views\House\PartialViews\GridItems.cshtml" />
+    <Content Include="Views\House\DetailsAndBid.cshtml" />
+    <Content Include="Views\House\PartialViews\HouseD.cshtml" />
+    <Content Include="Views\House\PartialViews\HouseB.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

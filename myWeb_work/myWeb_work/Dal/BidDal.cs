@@ -12,7 +12,7 @@ namespace myWeb_work.Dal
             protected override void OnModelCreating(DbModelBuilder modelBuilder)
             {
                 base.OnModelCreating(modelBuilder);
-                modelBuilder.Entity<Bid>().ToTable("HousesBid");
+                modelBuilder.Entity<Bid>().ToTable("HouseBid");
             }
             public DbSet<Bid> Bids { get; set; }
     }

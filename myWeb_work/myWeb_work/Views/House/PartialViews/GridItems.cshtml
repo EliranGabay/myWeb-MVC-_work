@@ -1,5 +1,4 @@
 ﻿@model List<myWeb_work.Models.House>
-<div class="menu">
     <div class="container-fluid">
         <div class="Grid">
             @{WebGrid grid = new WebGrid(source: this.Model);
@@ -10,7 +9,7 @@
                 selectedRowStyle: "grid-selected-row",
                 rowStyle: "grid-row-style",
                 mode: WebGridPagerModes.All,
-                columns: grid.Columns(grid.Column("HouseNumber", "House Number", style: "columnHouseNumber"),
+                columns: grid.Columns(grid.Column("HouseNumber", "HouseNumber", style: "columnHouseNumber"),
                 grid.Column("HouseName", "House Name", style: "columnHouseName"),
                 grid.Column("HouseAddress", "House Address", style: "columnHouseAddress"),
                 grid.Column("HouseDetails", "House Details", style: "columnHouseDetails"),
@@ -18,11 +17,9 @@
                 grid.Column("HousePrice", "House Price", style: "columnHousePrice"),
                 grid.Column("Options", null, style: "columnActions", format:
                 @<text>
-                    @Html.ActionLink("Details", "HouseDetails", "House", new { HouseNumber = item.HouseNumber }, null) /
-                    @Html.ActionLink("Bid", "BidForHouse", "House", new { HouseNumber = item.HouseNumber }, null)
+                    @Html.ActionLink("Details and Bid", "HouseDetails", "House", new { HouseNumber = item.HouseNumber },null) /
                 </text>)))
             }
         </div>
     </div>
-</div>
 

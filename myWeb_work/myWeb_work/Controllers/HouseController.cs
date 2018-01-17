@@ -50,19 +50,22 @@ namespace myWeb_work.Controllers
             ViewBag.user = user;
             return View(houses);
         }
-        public ActionResult HouseDetails(int houseNum)
+        public ActionResult HouseDetails(int HouseNumber)
         {
             HouseDal dal = new HouseDal();//check info in database
-            List<House> houses = (from x in dal.Houses where x.HouseNumber.Equals(houseNum) select x).ToList<House>();
-            return PartialView("PartialViews/PopupHouseD", houses[0]);
-        }
-        public ActionResult BidForHouse(int HouseNumber)
-        {
-            BidDal dal = new BidDal();
-            List<Bid> bids = (from x in dal.Bids where x.HouseNumber.Equals(HouseNumber) select x).ToList<Bid>();
+            List<House> houses = (from x in dal.Houses where x.HouseNumber.Equals(HouseNumber) select x).ToList<House>();
             UserLog();
             ViewBag.user = user;
-            return PartialView("BidForHouse",bids);
+            Session["HouseNumber"] = HouseNumber;
+            return View("DetailsAndBid", houses[0]);
+        }
+        public ActionResult GetBidByJson()
+        {
+            int HouseNumber = (int)Session["HouseNumber"];
+            BidDal dal = new BidDal();
+            List<Bid> bids = (from x in dal.Bids where x.HouseNumber.Equals(HouseNumber) select x).ToList<Bid>();
+            bids.Sort((x, y) => y.BidPrice.CompareTo(x.BidPrice));
+            return Json(bids, JsonRequestBehavior.AllowGet);
         }
     }
 }
