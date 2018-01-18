@@ -54,7 +54,8 @@ namespace myWeb_work.Controllers
         {
             ImageDal Idal = new ImageDal();
             List<Image> ims= (from x in Idal.Images where x.HouseID.Equals(HouseNumber) select x).ToList<Image>();
-            Session["Image"] =ims[0].ImageName.Replace(" ","");
+            if (ims.Count != 0) Session["Image"] = ims[0].ImageName.Replace(" ", "");
+            else Session["Image"] = "";
             HouseDal dal = new HouseDal();//check info in database
             List<House> houses = (from x in dal.Houses where x.HouseNumber.Equals(HouseNumber) select x).ToList<House>();
             UserLog();
