@@ -10,7 +10,7 @@ namespace myWeb_work.Controllers
     public class HomePageController : Controller
     {
         // GET: HomePage
-        public ActionResult HomePage(LoginUser user)
+        public ActionResult HomePage(LoginUser user)//home page
         {
             return View(user);
         }

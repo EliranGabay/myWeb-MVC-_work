@@ -9,7 +9,18 @@
     </div>
     <div class="row">
         <div class="col-sm-5">
-            <img src="~/DataStyle/Image/HomeSold1.jpg" class="img-thumbnail" alt="Cinque Terre"/>
+            @if (Session["Image"].Equals("House1.jpg"))
+            {
+                <img src="~/DataStyle/Image/House1.jpg" sizes="100%" class="img-thumbnail" alt="Cinque Terre"/>
+            }
+            else if (Session["Image"].Equals("House2.jpg"))
+            {
+                <img src="~/DataStyle/Image/House2.jpg" sizes="100%" class="img-thumbnail" alt="Cinque Terre" />
+            }
+            else
+            {
+                <img src="~/DataStyle/Image/House3.jpg" sizes="100%" class="img-thumbnail" alt="Cinque Terre" />
+            }
         </div>
         <div class="col-sm-7">
             <div class="jumbotron text">
@@ -21,15 +32,18 @@
                 </div>
                 <hr />
                 <div class="col-sm">
-                    <form action="BidSend" method="post">
-                        <div class="form-group">
-                            <label for="Bid">Bid:</label>
-                            <input type="text" class="form-control" id="Bid" placeholder="Enter Bid" name="Bid"/>
-                        </div>
-                        <button type="submit" class="btn btn-default">Send Bid</button>
-                    </form>
+                    @{Html.RenderPartial("PartialViews/BidSend", (object)ViewBag.Bid);}
                 </div>
             </div>
+            <script>
+                window.onload = function ()//reload page for json func
+                {
+                    if (!window.location.hash) {
+                        window.location = window.location + '#loaded';
+                        window.location.reload();
+                    }
+                }
+            </script>
             <div class="col-sm">
                 @{Html.RenderPartial("PartialViews/HouseB");}
             </div>

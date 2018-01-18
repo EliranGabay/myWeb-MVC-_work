@@ -12,7 +12,7 @@ namespace myWeb_work.Controllers
     {
         LoginUser LUser = new LoginUser();
         // GET: User
-        public ActionResult UserLog()
+        public ActionResult UserLog()//user login save info of user
         {
             LUser.ID = (string)Session["UserName"];
             LUser.UserType = (string)Session["UserType"];
@@ -71,7 +71,7 @@ namespace myWeb_work.Controllers
                     ViewBag.Error = "the ID number is existing";
                     return View("Sign_Up", user);
                 }
-                user.UserType = "regular";
+                user.UserType = "regular";//Making changes in databas
                 dal.Users.Add(user);
                 dal.SaveChanges();
                 return View("~/Views/HomePage/HomePage.cshtml");//pass the check

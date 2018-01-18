@@ -32,7 +32,7 @@
                 <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "HousesRequests" ? "active" : "")"><a href="@Url.Action("HousesRequests", "Admin",Model)">Houses Requests</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "MyProfile" ? "active" : "")"><a href="@Url.Action("MyProfile", "User",Model)"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+                <li><span class="glyphicon glyphicon-user"></span>@Session["FullName"]</li>
                 <li><a href="@Url.Action("Logout","User",Model)"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
             </ul>
         </div>
